@@ -90,14 +90,16 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          SHA="$(cat metadata/source-main-sha.txt)"
-          NOW="$(date -u +'%Y-%m-%dT%H:%M:%SZ')"
-          cat > BACKUP_STATUS.md <<EOF
-          # ReturnReview Full Backup Status
+          python - <<'PY'
+          from datetime import datetime, timezone
+          from pathlib import Path
+          sha = Path("metadata/source-main-sha.txt").read_text(encoding="utf-8").strip()
+          now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+          Path("BACKUP_STATUS.md").write_text(f"""# ReturnReview Full Backup Status
 
-          - Backup generated: `$NOW`
+          - Backup generated: `{now}`
           - Source repository: `Rishikeshsanin/ReturnReview`
-          - Source main SHA: `$SHA`
+          - Source main SHA: `{sha}`
           - Full working-tree snapshot: `project/`
           - Full Git history bundle: `archives/ReturnReview-full-history.bundle`
           - GitHub Release metadata and downloadable assets: `releases/`
@@ -112,7 +114,8 @@ jobs:
           The live Railway PostgreSQL database needs a logical `pg_dump` after Railway service restoration. The Railway trial expired on 2026-10-25 and the services are currently stopped, so a fresh database dump cannot be captured by this GitHub-only backup run.
 
           Existing database schema/application models, migrations, deployment configuration documentation, evaluation artifacts, source code, and model releases are preserved here.
-          EOF
+          """, encoding="utf-8")
+          PY
 
           cat > RESTORE.md <<'EOF'
           # ReturnReview Restore Guide
