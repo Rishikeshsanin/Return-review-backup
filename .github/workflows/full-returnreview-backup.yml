@@ -33,7 +33,9 @@ jobs:
           rm -rf project archives metadata releases
           mkdir -p project archives metadata releases
 
-          rsync -a --delete --exclude ".git" /tmp/returnreview-source/ project/
+          rm -rf project
+          mkdir -p project
+          git -C /tmp/returnreview-source archive --format=tar HEAD | tar -xf - -C project
           git -C /tmp/returnreview-mirror.git bundle create "$GITHUB_WORKSPACE/archives/ReturnReview-full-history.bundle" --all
 
           git -C /tmp/returnreview-source rev-parse HEAD > metadata/source-main-sha.txt
