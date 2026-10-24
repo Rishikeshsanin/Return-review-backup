@@ -1,0 +1,183 @@
+name: Full ReturnReview Backup
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/full-returnreview-backup.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout backup repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Mirror source repository and history
+        shell: bash
+        run: |
+          set -euo pipefail
+          SRC="https://github.com/Rishikeshsanin/ReturnReview.git"
+          rm -rf /tmp/returnreview-source /tmp/returnreview-mirror.git
+          git clone "$SRC" /tmp/returnreview-source
+          git -C /tmp/returnreview-source fetch --all --tags --prune
+          git clone --mirror "$SRC" /tmp/returnreview-mirror.git
+
+          rm -rf project archives metadata releases
+          mkdir -p project archives metadata releases
+
+          rsync -a --delete --exclude ".git" /tmp/returnreview-source/ project/
+          git -C /tmp/returnreview-mirror.git bundle create "$GITHUB_WORKSPACE/archives/ReturnReview-full-history.bundle" --all
+
+          git -C /tmp/returnreview-source rev-parse HEAD > metadata/source-main-sha.txt
+          git -C /tmp/returnreview-source log -1 --format='%H%n%cI%n%s' > metadata/source-main-commit.txt
+          git -C /tmp/returnreview-source branch -a > metadata/git-branches.txt
+          git -C /tmp/returnreview-source tag -n > metadata/git-tags.txt
+
+      - name: Export GitHub metadata
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          api() {
+            curl -fsSL               -H "Accept: application/vnd.github+json"               -H "Authorization: Bearer $GH_TOKEN"               -H "X-GitHub-Api-Version: 2022-11-28"               "$1"
+          }
+
+          BASE="https://api.github.com/repos/Rishikeshsanin/ReturnReview"
+          api "$BASE" > metadata/repository.json
+          api "$BASE/branches?per_page=100" > metadata/branches.json
+          api "$BASE/tags?per_page=100" > metadata/tags.json
+          api "$BASE/releases?per_page=100" > metadata/releases.json
+          api "$BASE/issues?state=all&per_page=100" > metadata/issues-and-prs.json
+          api "$BASE/pulls?state=all&per_page=100" > metadata/pulls.json
+          api "$BASE/actions/workflows?per_page=100" > metadata/actions-workflows.json
+          api "$BASE/actions/runs?per_page=100" > metadata/actions-runs.json
+
+      - name: Download every GitHub Release asset
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json, pathlib, subprocess
+          releases = json.load(open("metadata/releases.json", encoding="utf-8"))
+          root = pathlib.Path("releases")
+          for release in releases:
+              tag = release["tag_name"]
+              out = root / tag
+              out.mkdir(parents=True, exist_ok=True)
+              (out / "release-metadata.json").write_text(
+                  json.dumps(release, indent=2), encoding="utf-8"
+              )
+              for asset in release.get("assets", []):
+                  target = out / asset["name"]
+                  subprocess.run(
+                      ["curl", "-fL", "--retry", "3", asset["browser_download_url"], "-o", str(target)],
+                      check=True,
+                  )
+          PY
+
+      - name: Write recovery and completeness manifest
+        shell: bash
+        run: |
+          set -euo pipefail
+          SHA="$(cat metadata/source-main-sha.txt)"
+          NOW="$(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+          cat > BACKUP_STATUS.md <<EOF
+          # ReturnReview Full Backup Status
+
+          - Backup generated: `$NOW`
+          - Source repository: `Rishikeshsanin/ReturnReview`
+          - Source main SHA: `$SHA`
+          - Full working-tree snapshot: `project/`
+          - Full Git history bundle: `archives/ReturnReview-full-history.bundle`
+          - GitHub Release metadata and downloadable assets: `releases/`
+          - Repository/branch/tag/PR/issue/workflow metadata: `metadata/`
+
+          ## Intentionally not stored
+
+          Secrets are deliberately excluded. API keys, database passwords, resolved Railway service credentials, tokens, and private environment-variable values must never be committed.
+
+          ## External runtime data still requiring a separate backup
+
+          The live Railway PostgreSQL database needs a logical `pg_dump` after Railway service restoration. The Railway trial expired on 2026-10-25 and the services are currently stopped, so a fresh database dump cannot be captured by this GitHub-only backup run.
+
+          Existing database schema/application models, migrations, deployment configuration documentation, evaluation artifacts, source code, and model releases are preserved here.
+          EOF
+
+          cat > RESTORE.md <<'EOF'
+          # ReturnReview Restore Guide
+
+          ## Restore the source tree
+          Copy the contents of `project/` into a clean repository/worktree.
+
+          ## Restore full Git history
+          ```bash
+          git clone archives/ReturnReview-full-history.bundle ReturnReview-restored
+          cd ReturnReview-restored
+          git checkout main
+          ```
+
+          ## Restore CV models
+          The approved model binaries and release manifests are under `releases/`. The production release is `cv-lightweight-1`.
+
+          ## Restore hosted runtime
+          Recreate/restore the documented Railway services only from the ReturnReview project documentation. Do not copy secrets from documentation; use fresh environment secrets.
+
+          ## Restore database
+          After a PostgreSQL dump is added to this repository or another secure backup location:
+          ```bash
+          pg_restore --clean --if-exists --no-owner --dbname="<target-url>" <dump-file>
+          ```
+
+          Never commit plaintext database URLs, API keys, OAuth tokens, or provider secrets.
+          EOF
+
+          cat > SECRETS_NOT_INCLUDED.md <<'EOF'
+          # Secrets Are Not Part of This Backup
+
+          This repository is intended to be a comprehensive project backup, but **not a secret vault**.
+
+          Deliberately excluded:
+          - Gemini API keys
+          - Railway tokens
+          - PostgreSQL passwords/resolved DATABASE_URL values
+          - Roboflow API keys
+          - GitHub tokens/secrets
+          - any other private provider credentials
+
+          Rotate/recreate secrets when restoring the project.
+          EOF
+
+      - name: Generate checksums and size guard
+        shell: bash
+        run: |
+          set -euo pipefail
+          if find project releases archives metadata -type f -size +95M -print | grep -q .; then
+            echo "A backup file exceeds the safe GitHub repository file-size threshold." >&2
+            find project releases archives metadata -type f -size +95M -print
+            exit 1
+          fi
+          find project releases archives metadata -type f -print0             | sort -z             | xargs -0 sha256sum > SHA256SUMS.txt
+
+      - name: Commit full backup
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Backup already current."
+            exit 0
+          fi
+          SHA="$(cat metadata/source-main-sha.txt)"
+          git commit -m "backup: mirror ReturnReview at ${SHA:0:12}"
+          git push origin HEAD:main
