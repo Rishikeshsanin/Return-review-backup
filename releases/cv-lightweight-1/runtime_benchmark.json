@@ -1,0 +1,22 @@
+{
+  "platform": "github_actions_ubuntu_cpu",
+  "after_import_peak_rss_mb": 716.98046875,
+  "after_yolo_load_peak_rss_mb": 734.24609375,
+  "after_category_load_peak_rss_mb": 750.70703125,
+  "final_peak_rss_mb": 802.71875,
+  "yolo_load_ms": 50.39795199991204,
+  "category_load_ms": 53.03509899931669,
+  "category_single_image_inference_ms": 25.67379200081632,
+  "yolo_single_image_inference_ms": 159.91066600145132,
+  "combined_single_image_inference_ms": 185.58445800226764,
+  "predicted_masks": 0,
+  "category_probability_cardboard": 0.9999408721923828,
+  "total_seconds": 3.0322888499995315,
+  "railway_fit": {
+    "current_limit_mb": 1024.0,
+    "observed_existing_api_base_mb": 92.0,
+    "safety_reserve_mb": 64.0,
+    "estimated_total_mb": 894.71875,
+    "fits_with_reserve": true
+  }
+}

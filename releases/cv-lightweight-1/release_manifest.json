@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-09-25T14:50:21.455034+00:00",
+  "model_version": "cv-lightweight-1",
+  "runtime": {
+    "category_verification": "mobilenet_v3_small_binary_classifier",
+    "damage_segmentation": "yolo11n_seg_multiclass",
+    "defect_mapping": {
+      "tear": "tear",
+      "squeeze": "dent_or_crush_or_crushed_corner_by_geometry",
+      "leakage": "unknown"
+    },
+    "openclip_required_in_production": false
+  },
+  "artifacts": {
+    "segmentation_checkpoint": {
+      "filename": "best.pt",
+      "sha256": "1cd0d8ecf124deb9c75f7f67b8a42df936ac0e55e2df5c3f366b1738975d3d82",
+      "bytes": 5959908
+    },
+    "category_checkpoint": {
+      "filename": "category_mobilenet_v3_small.pt",
+      "sha256": "dd69374690501edae2ac59954c73a4bc99d12fa3d26e15e9a5565966c61dbc19",
+      "bytes": 6206367
+    },
+    "segmentation_metrics": {
+      "filename": "segmentation_metrics.json",
+      "sha256": "40b24836283d0ea9da6665e5bbc1b925ca8e290d2731083a67b1b04949321c85",
+      "bytes": 596
+    },
+    "category_metrics": {
+      "filename": "category_metrics.json",
+      "sha256": "9f49e56085fd724d635b05c66f6719cbb6b4ebf9670217eba056695c6e997599",
+      "bytes": 457
+    },
+    "runtime_benchmark": {
+      "filename": "runtime_benchmark.json",
+      "sha256": "22acc7aa7686f9031dd738536aaaa37efbe15c810c1fe2fa1105f37b7054561d",
+      "bytes": 791
+    }
+  },
+  "claims": {
+    "public_pilot": true,
+    "project_controlled_dataset": false,
+    "crushed_corner_direct_training_label": false
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "status": "evaluated_public_pilot",
+  "scope": "public_pilot_not_project_controlled_final",
+  "segmentation": {
+    "test_images": 136,
+    "damaged_test_images": 136,
+    "mean_iou_all": 0.168004,
+    "mean_dice_all": 0.229406,
+    "mean_iou_damaged_only": 0.168004,
+    "mean_dice_damaged_only": 0.229406,
+    "pixel_precision_all": 0.363728,
+    "pixel_recall_all": 0.21451,
+    "mask_map50": 0.14394264046397337,
+    "mask_map50_95": 0.03937739194770022,
+    "box_map50": 0.16679741266002923
+  },
+  "product_verification": {
+    "test_samples": 224,
+    "threshold": 0.46799999999999997,
+    "accuracy": 0.96875,
+    "false_accept_rate": 0.09375,
+    "false_reject_rate": 0.00625,
+    "true_positive": 159,
+    "true_negative": 58,
+    "false_positive": 6,
+    "false_negative": 1
+  },
+  "semantic_defect_classification": {
+    "test_samples": 373,
+    "similarity_threshold": 0.34500000000000003,
+    "margin_threshold": 0.0,
+    "accuracy": 0.6702412868632708,
+    "macro_f1": 0.6387472176945861,
+    "per_class": {
+      "dent_or_crush": {
+        "precision": 0.803030303030303,
+        "recall": 0.6883116883116883,
+        "f1": 0.7412587412587411,
+        "support": 154
+      },
+      "tear": {
+        "precision": 0.4235294117647059,
+        "recall": 0.5373134328358209,
+        "f1": 0.47368421052631576,
+        "support": 67
+      },
+      "unknown": {
+        "precision": 0.6923076923076923,
+        "recall": 0.7105263157894737,
+        "f1": 0.7012987012987013,
+        "support": 152
+      }
+    },
+    "directly_scored_source_labels": [
+      "tear",
+      "squeeze->dent_or_crush",
+      "leakage->unknown"
+    ],
+    "crushed_corner_scored": false
+  },
+  "calibration": {
+    "category_similarity_threshold": 0.46799999999999997,
+    "defect_similarity_threshold": 0.34500000000000003,
+    "defect_margin_threshold": 0.0
+  },
+  "dataset": {
+    "validation_status": "valid",
+    "split_counts": {
+      "train": {
+        "images": 2745,
+        "labels": 2745,
+        "normal_empty_labels": 0,
+        "damaged_nonempty_labels": 2745,
+        "polygons": 4380
+      },
+      "val": {
+        "images": 253,
+        "labels": 253,
+        "normal_empty_labels": 0,
+        "damaged_nonempty_labels": 253,
+        "polygons": 395
+      },
+      "test": {
+        "images": 136,
+        "labels": 136,
+        "normal_empty_labels": 0,
+        "damaged_nonempty_labels": 136,
+        "polygons": 221
+      }
+    },
+    "source": "Roboflow box instance-segmentation public dataset, CC BY 4.0; selected tear+squeeze polygons collapsed to binary damage.",
+    "limitations": [
+      "This is a public-data pilot, not the requested 28-image project-controlled capture.",
+      "squeeze is used only as an explicitly declared compression-damage proxy for dent_or_crush during subtype evaluation.",
+      "leakage is used only as an out-of-taxonomy unknown rejection example.",
+      "crushed_corner has no direct held-out source label in this public pilot and is not scored.",
+      "Generic non-box images are used as product-verification negatives."
+    ]
+  },
+  "provenance": {
+    "pixel_metrics": "artifacts/evaluation/segmentation_pixel_metrics.json",
+    "map_metrics": "artifacts/evaluation/segmentation_map_metrics.json",
+    "category_calibration": "artifacts/evaluation/category_calibration.json",
+    "category_test": "artifacts/evaluation/category_metrics.json",
+    "defect_calibration": "artifacts/evaluation/defect_calibration.json",
+    "defect_test": "artifacts/evaluation/defect_metrics.json",
+    "dataset_validation": "artifacts/evaluation/dataset_validation.json"
+  }
+}

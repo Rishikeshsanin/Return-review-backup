@@ -1,0 +1,20 @@
+{
+  "product_verification": {
+    "test_samples": 32,
+    "accuracy": 1.0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "false_accept_rate": 0.0,
+    "false_reject_rate": 0.0,
+    "confusion": {
+      "tp": 16,
+      "tn": 16,
+      "fp": 0,
+      "fn": 0
+    },
+    "model": "mobilenet_v3_small",
+    "best_validation_accuracy": 0.96875
+  },
+  "provenance": "Held-out source-split cardboard positives and disjoint generic COCO negatives."
+}

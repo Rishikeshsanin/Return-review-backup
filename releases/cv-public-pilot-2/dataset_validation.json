@@ -1,0 +1,34 @@
+{
+  "status": "valid",
+  "root": "/home/runner/work/ReturnReview/ReturnReview/artifacts/cv-work/pilot",
+  "expected_class_map": {
+    "0": "damage"
+  },
+  "split_counts": {
+    "train": {
+      "images": 160,
+      "labels": 160,
+      "normal_empty_labels": 0,
+      "damaged_nonempty_labels": 160,
+      "polygons": 254
+    },
+    "val": {
+      "images": 40,
+      "labels": 40,
+      "normal_empty_labels": 0,
+      "damaged_nonempty_labels": 40,
+      "polygons": 67
+    },
+    "test": {
+      "images": 40,
+      "labels": 40,
+      "normal_empty_labels": 0,
+      "damaged_nonempty_labels": 40,
+      "polygons": 63
+    }
+  },
+  "total_polygons": 384,
+  "duplicate_basenames_across_splits": {},
+  "errors": [],
+  "warnings": []
+}

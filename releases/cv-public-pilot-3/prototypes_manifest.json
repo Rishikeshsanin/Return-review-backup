@@ -1,0 +1,33 @@
+{
+  "kind": "hybrid_openclip_prototype_bank",
+  "model": "ViT-B-32",
+  "pretrained": "laion2b_s34b_b79k",
+  "sources": {
+    "category_cardboard_box": {
+      "kind": "train_image_prototype",
+      "samples": 48
+    },
+    "defect_dent_or_crush": {
+      "kind": "train_image_prototype",
+      "samples": 48
+    },
+    "defect_tear": {
+      "kind": "train_image_prototype",
+      "samples": 48
+    },
+    "defect_crushed_corner": {
+      "kind": "text_fallback",
+      "prompts": [
+        "a crushed corner of a corrugated cardboard shipping box",
+        "a visibly collapsed corner of a cardboard parcel box",
+        "compression damage concentrated at a cardboard box corner"
+      ]
+    }
+  },
+  "limitations": [
+    "crushed_corner is text-derived because the public source has no direct train label.",
+    "tear and dent_or_crush use train-only image crops.",
+    "category verification uses train-only full parcel images.",
+    "Thresholds are calibrated on validation data and evaluated once on held-out test data."
+  ]
+}

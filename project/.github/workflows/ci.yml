@@ -1,0 +1,127 @@
+name: CI
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements.txt
+      - run: PYTHONPATH=. pytest -q
+      - name: Syntax-check project scripts
+        run: python -m py_compile ../scripts/*.py
+
+      - name: Validate fixed LLM evaluation set
+        run: python ../scripts/validate_llm_eval_set.py --input ../data/evaluation/llm_eval_cases.jsonl
+
+      - name: Validate human-reviewed Gemini run
+        run: |
+          python ../scripts/validate_llm_eval_set.py \
+            --input ../data/evaluation/runs/2026-09-24-gemini-3.5-flash-reviewed.jsonl \
+            --require-results
+          python ../scripts/evaluate_reviews.py \
+            --input ../data/evaluation/runs/2026-09-24-gemini-3.5-flash-reviewed.jsonl \
+            --output /tmp/returnreview-llm-metrics.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          generated = json.loads(Path("/tmp/returnreview-llm-metrics.json").read_text())
+          committed = json.loads(Path("../data/evaluation/llm_metrics.json").read_text())
+
+          # The committed artifact adds only audit metadata that the evaluator does
+          # not generate; the scored metrics and core provenance must match exactly.
+          assert generated["llm_review"] == committed["llm_review"]
+          for key in ("statement", "model", "evaluation_set_sha256", "system_prompt_sha256", "generated_at_utc"):
+              assert generated["provenance"][key] == committed["provenance"][key]
+          print("Reviewed LLM metrics artifact verified.")
+          PY
+
+      - name: Validate controlled pilot manifest
+        run: python ../scripts/validate_pilot_manifest.py --manifest ../data/pilot_manifest.csv
+
+      - name: Exercise truthful readiness checker
+        run: |
+          set +e
+          python ../scripts/check_release_readiness.py --root .. --output /tmp/returnreview-readiness.json
+          status=$?
+          set -e
+          if [ "$status" -ne 0 ] && [ "$status" -ne 2 ]; then
+            cat /tmp/returnreview-readiness.json || true
+            exit "$status"
+          fi
+          cat /tmp/returnreview-readiness.json
+
+  frontend:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install
+      - run: npm run build
+
+  backend-container:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker build -t returnreview-backend .
+      - run: docker run -d --name returnreview-ci -p 8000:8000 -e PORT=8000 returnreview-backend
+      - run: |
+          for i in {1..20}; do
+            if curl --fail --silent http://127.0.0.1:8000/health; then
+              exit 0
+            fi
+            sleep 1
+          done
+          docker logs returnreview-ci
+          exit 1
+
+  frontend-container:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker build -t returnreview-frontend ./frontend
+      - run: docker run -d --name returnreview-web -p 3000:3000 -e PORT=3000 returnreview-frontend
+      - run: |
+          for i in {1..30}; do
+            if curl --fail --silent http://127.0.0.1:3000/ >/dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          docker logs returnreview-web
+          exit 1
+
+  lightweight-cv-container:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build checksum-verified lightweight CV image
+        run: docker build -f Dockerfile.cv --build-arg CV_RELEASE_TAG=cv-lightweight-1 -t returnreview-cv .
+      - name: Verify packaged CV models load
+        run: |
+          docker run --rm -i returnreview-cv python - <<'PY'
+          from PIL import Image
+          from app.services.category_verifier import category_verifier
+          from app.services.cv_service import cv_service
+
+          category_verifier._load()
+          cv_service._load_yolo()
+          ok, probability = category_verifier.verify(Image.new("RGB", (640, 480), "white"))
+          print({"category_model_loaded": True, "yolo_model_loaded": True, "sample_probability": probability, "sample_verified": ok})
+          PY

@@ -1,0 +1,4 @@
+cv-lightweight-1 Train lightweight production CV candidate
+cv-public-pilot-2 Fix CV pilot checkpoint path
+cv-public-pilot-3 Improve CV public pilot quality
+cv-public-pilot-4 Run full public CV pilot and benchmark production capacity

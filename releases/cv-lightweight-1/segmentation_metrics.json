@@ -1,0 +1,24 @@
+{
+  "segmentation": {
+    "mask_map50": 0.12943023683008922,
+    "mask_map50_95": 0.03237116462155614,
+    "box_map50": 0.14396114443765018,
+    "per_class": {
+      "tear": {
+        "mask_map50_95": 0.006335227046828829
+      },
+      "squeeze": {
+        "mask_map50_95": 0.0531965734946306
+      },
+      "leakage": {
+        "mask_map50_95": 0.037581693323209
+      }
+    }
+  },
+  "runtime_mapping": {
+    "tear": "tear",
+    "squeeze": "dent_or_crush_or_crushed_corner_by_geometry",
+    "leakage": "unknown"
+  },
+  "note": "Generated directly from the held-out public-source test split."
+}

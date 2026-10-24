@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-09-24T08:43:16.391800+00:00",
+  "model_version": "cv-public-pilot-3",
+  "artifacts": {
+    "checkpoint": {
+      "filename": "best.pt",
+      "sha256": "278b7109c685cd2ff72c3c19e58889688a7a7d5455423a545abfaff5ab5c2511",
+      "bytes": 5970404
+    },
+    "prototype_bank": {
+      "filename": "prototypes.npz",
+      "sha256": "3029815db78309e55a2c534b95633895bbea24711f80f178fcd3d3075cd82190",
+      "bytes": 9290,
+      "keys": [
+        "category_cardboard_box",
+        "defect_crushed_corner",
+        "defect_dent_or_crush",
+        "defect_tear"
+      ]
+    }
+  },
+  "thresholds": {
+    "category_similarity": 0.45199999999999996,
+    "defect_similarity": 0.385,
+    "defect_margin": 0.008
+  },
+  "claims": {
+    "training_metrics_included": false,
+    "evaluation_metrics_included": false,
+    "note": "Metrics must be generated separately from held-out evaluation and must never be inferred from this release package."
+  }
+}

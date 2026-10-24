@@ -1,0 +1,23 @@
+{
+  "platform": "github_actions_ubuntu_cpu",
+  "checkpoint_bytes": 5959076,
+  "prototype_bytes": 11598,
+  "prototype_keys": [
+    "category_cardboard_box",
+    "defect_crushed_corner",
+    "defect_dent_or_crush",
+    "defect_tear",
+    "defect_unknown"
+  ],
+  "yolo_load_ms": 50.112175999856845,
+  "clip_load_ms": 1003.5886820005544,
+  "yolo_single_image_inference_ms": 155.2321259996461,
+  "clip_single_image_inference_ms": 88.47699899979489,
+  "predicted_masks": 3,
+  "peak_rss_mb_after_imports": 774.4375,
+  "peak_rss_mb_after_yolo_load": 790.453125,
+  "peak_rss_mb_after_clip_load": 1949.640625,
+  "peak_rss_mb_final": 1949.640625,
+  "total_process_seconds": 4.675218823999785,
+  "deployment_note": "Peak RSS is measured on GitHub-hosted Ubuntu CPU and is a pre-production capacity signal, not a guarantee of identical Railway memory usage."
+}

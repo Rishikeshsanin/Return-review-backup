@@ -1,0 +1,42 @@
+[
+  {
+    "name": "cv-public-pilot-4",
+    "zipball_url": "https://api.github.com/repos/Rishikeshsanin/ReturnReview/zipball/refs/tags/cv-public-pilot-4",
+    "tarball_url": "https://api.github.com/repos/Rishikeshsanin/ReturnReview/tarball/refs/tags/cv-public-pilot-4",
+    "commit": {
+      "sha": "d442d751971b234e8a7d97b08e9fa9ee41f4aebe",
+      "url": "https://api.github.com/repos/Rishikeshsanin/ReturnReview/commits/d442d751971b234e8a7d97b08e9fa9ee41f4aebe"
+    },
+    "node_id": "REF_kwDOUk5BCbtyZWZzL3RhZ3MvY3YtcHVibGljLXBpbG90LTQ"
+  },
+  {
+    "name": "cv-public-pilot-3",
+    "zipball_url": "https://api.github.com/repos/Rishikeshsanin/ReturnReview/zipball/refs/tags/cv-public-pilot-3",
+    "tarball_url": "https://api.github.com/repos/Rishikeshsanin/ReturnReview/tarball/refs/tags/cv-public-pilot-3",
+    "commit": {
+      "sha": "a78eb79e678b5a4341468c4dd856a54efa5ab6ed",
+      "url": "https://api.github.com/repos/Rishikeshsanin/ReturnReview/commits/a78eb79e678b5a4341468c4dd856a54efa5ab6ed"
+    },
+    "node_id": "REF_kwDOUk5BCbtyZWZzL3RhZ3MvY3YtcHVibGljLXBpbG90LTM"
+  },
+  {
+    "name": "cv-public-pilot-2",
+    "zipball_url": "https://api.github.com/repos/Rishikeshsanin/ReturnReview/zipball/refs/tags/cv-public-pilot-2",
+    "tarball_url": "https://api.github.com/repos/Rishikeshsanin/ReturnReview/tarball/refs/tags/cv-public-pilot-2",
+    "commit": {
+      "sha": "3f394abfde0a2f2d73014fe98cf599ec629cbd68",
+      "url": "https://api.github.com/repos/Rishikeshsanin/ReturnReview/commits/3f394abfde0a2f2d73014fe98cf599ec629cbd68"
+    },
+    "node_id": "REF_kwDOUk5BCbtyZWZzL3RhZ3MvY3YtcHVibGljLXBpbG90LTI"
+  },
+  {
+    "name": "cv-lightweight-1",
+    "zipball_url": "https://api.github.com/repos/Rishikeshsanin/ReturnReview/zipball/refs/tags/cv-lightweight-1",
+    "tarball_url": "https://api.github.com/repos/Rishikeshsanin/ReturnReview/tarball/refs/tags/cv-lightweight-1",
+    "commit": {
+      "sha": "4ab392338c0caef07e83c9b556f8e7daf2030641",
+      "url": "https://api.github.com/repos/Rishikeshsanin/ReturnReview/commits/4ab392338c0caef07e83c9b556f8e7daf2030641"
+    },
+    "node_id": "REF_kwDOUk5BCbpyZWZzL3RhZ3MvY3YtbGlnaHR3ZWlnaHQtMQ"
+  }
+]

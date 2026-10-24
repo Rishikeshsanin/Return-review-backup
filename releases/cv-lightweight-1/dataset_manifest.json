@@ -1,0 +1,40 @@
+{
+  "source_id": "roboflow_box_damage_segmentation_v16",
+  "source_url": "https://universe.roboflow.com/tracking-u78ba/box-fsrpn",
+  "license": "CC BY 4.0",
+  "conversion": "polygon_class_remap_only",
+  "target_classes": {
+    "0": "tear",
+    "1": "squeeze",
+    "2": "leakage"
+  },
+  "runtime_mapping": {
+    "tear": "tear",
+    "squeeze": "dent_or_crush_or_crushed_corner_by_geometry",
+    "leakage": "unknown"
+  },
+  "split_counts": {
+    "train": {
+      "images": 3447,
+      "polygons": 7326
+    },
+    "val": {
+      "images": 326,
+      "polygons": 750
+    },
+    "test": {
+      "images": 169,
+      "polygons": 373
+    }
+  },
+  "class_polygons": {
+    "tear": 1547,
+    "squeeze": 3449,
+    "leakage": 3453
+  },
+  "totals": {
+    "images_seen": 3966,
+    "images_written": 3942,
+    "polygons_written": 8449
+  }
+}

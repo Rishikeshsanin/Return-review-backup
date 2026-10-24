@@ -1,0 +1,418 @@
+[
+  {
+    "name": "chore/project-hub-safety",
+    "commit": {
+      "sha": "7bb94b61d0243c6e742ae4bfa22c6c662810d76e",
+      "url": "https://api.github.com/repos/Rishikeshsanin/ReturnReview/commits/7bb94b61d0243c6e742ae4bfa22c6c662810d76e"
+    },
+    "protected": false
+  },
+  {
+    "name": "chore/railway-backend",
+    "commit": {
+      "sha": "ad5ccdb7e0fe215f5bd91b8d179f327a34cd29dc",
+      "url": "https://api.github.com/repos/Rishikeshsanin/ReturnReview/commits/ad5ccdb7e0fe215f5bd91b8d179f327a34cd29dc"
+    },
+    "protected": false
+  },
+  {
+    "name": "chore/railway-frontend",
+    "commit": {
+      "sha": "ce6ec1c9321980d1174f847196bc8fac91b784b6",
+      "url": "https://api.github.com/repos/Rishikeshsanin/ReturnReview/commits/ce6ec1c9321980d1174f847196bc8fac91b784b6"
+    },
+    "protected": false
+  },
+  {
+    "name": "chore/railway-hub-governance",
+    "commit": {
+      "sha": "38222f437023754e07b0366def50764a28ad19be",
+      "url": "https://api.github.com/repos/Rishikeshsanin/ReturnReview/commits/38222f437023754e07b0366def50764a28ad19be"
+    },
+    "protected": false
+  },
+  {
+    "name": "ci/production-e2e-smoke",
+    "commit": {
+      "sha": "b8730629a01e5f7b5044df99e723273cde5dc048",
+      "url": "https://api.github.com/repos/Rishikeshsanin/ReturnReview/commits/b8730629a01e5f7b5044df99e723273cde5dc048"
+    },
+    "protected": false
+  },
+  {
+    "name": "ci/railway-governance-gate",
+    "commit": {
+      "sha": "9c83db374a9ab6be301b72f013c7d6b771365f27",
+      "url": "https://api.github.com/repos/Rishikeshsanin/ReturnReview/commits/9c83db374a9ab6be301b72f013c7d6b771365f27"
+    },
+    "protected": false
+  },
+  {
+    "name": "cv/harden-release-packaging",
+    "commit": {
+      "sha": "017334b76651113efe4d24c8e6d7fba207815a74",
+      "url": "https://api.github.com/repos/Rishikeshsanin/ReturnReview/commits/017334b76651113efe4d24c8e6d7fba207815a74"
+    },
+    "protected": false
+  },
+  {
+    "name": "data/public-segmentation-converter-v2",
+    "commit": {
+      "sha": "774c1c2a5ced6a57309f050e91ac814bae695421",
+      "url": "https://api.github.com/repos/Rishikeshsanin/ReturnReview/commits/774c1c2a5ced6a57309f050e91ac814bae695421"
+    },
+    "protected": false
+  },
+  {
+    "name": "develop",
+    "commit": {
+      "sha": "d9c4b7a91a1e6493890b87f16aa3a97cc9ab6de6",
+      "url": "https://api.github.com/repos/Rishikeshsanin/ReturnReview/commits/d9c4b7a91a1e6493890b87f16aa3a97cc9ab6de6"
+    },
+    "protected": false
+  },
+  {
+    "name": "docs/complete-railway-persistence",
+    "commit": {
+      "sha": "9bc40c71395bbf5b323858d0d8be77c40a1df90d",
+      "url": "https://api.github.com/repos/Rishikeshsanin/ReturnReview/commits/9bc40c71395bbf5b323858d0d8be77c40a1df90d"
+    },
+    "protected": false
+  },
+  {
+    "name": "docs/final-live-state",
+    "commit": {
+      "sha": "7812dc92ebfb3500743f214e0116ef5695224825",
+      "url": "https://api.github.com/repos/Rishikeshsanin/ReturnReview/commits/7812dc92ebfb3500743f214e0116ef5695224825"
+    },
+    "protected": false
+  },
+  {
+    "name": "docs/finalize-railway-cleanup",
+    "commit": {
+      "sha": "6d84ed07cdaf5d4e80d6cb44556df27bad2689cc",
+      "url": "https://api.github.com/repos/Rishikeshsanin/ReturnReview/commits/6d84ed07cdaf5d4e80d6cb44556df27bad2689cc"
+    },
+    "protected": false
+  },
+  {
+    "name": "docs/live-deployment",
+    "commit": {
+      "sha": "e06d2e5a388f07b012466e776bf2df6cc36badb9",
+      "url": "https://api.github.com/repos/Rishikeshsanin/ReturnReview/commits/e06d2e5a388f07b012466e776bf2df6cc36badb9"
+    },
+    "protected": false
+  },
+  {
+    "name": "docs/preserve-gemini-eval-run",
+    "commit": {
+      "sha": "3401f18618b7cdc51345e44464a822ba2c48eea0",
+      "url": "https://api.github.com/repos/Rishikeshsanin/ReturnReview/commits/3401f18618b7cdc51345e44464a822ba2c48eea0"
+    },
+    "protected": false
+  },
+  {
+    "name": "docs/railway-postgres-runtime",
+    "commit": {
+      "sha": "0cbe169c631640ec4db6c167551f00642d1c307d",
+      "url": "https://api.github.com/repos/Rishikeshsanin/ReturnReview/commits/0cbe169c631640ec4db6c167551f00642d1c307d"
+    },
+    "protected": false
+  },
+  {
+    "name": "docs/record-production-smoke-pass",
+    "commit": {
+      "sha": "b4cc711ef2d800dfc8b6b66530661d6c781097a7",
+      "url": "https://api.github.com/repos/Rishikeshsanin/ReturnReview/commits/b4cc711ef2d800dfc8b6b66530661d6c781097a7"
+    },
+    "protected": false
+  },
+  {
+    "name": "docs/record-synthetic-controlled-evaluation",
+    "commit": {
+      "sha": "2bd16d5511557e53e3471b2a16e505f1ca235dd1",
+      "url": "https://api.github.com/repos/Rishikeshsanin/ReturnReview/commits/2bd16d5511557e53e3471b2a16e505f1ca235dd1"
+    },
+    "protected": false
+  },
+  {
+    "name": "docs/sync-gemini-production-status",
+    "commit": {
+      "sha": "38822eb2478c5ebd4e92cd5bfe5ad9fbbeff4c9b",
+      "url": "https://api.github.com/repos/Rishikeshsanin/ReturnReview/commits/38822eb2478c5ebd4e92cd5bfe5ad9fbbeff4c9b"
+    },
+    "protected": false
+  },
+  {
+    "name": "docs/verify-railway-postgres-health",
+    "commit": {
+      "sha": "b44bcf7357c27aa467e9262d289844a56f0936ab",
+      "url": "https://api.github.com/repos/Rishikeshsanin/ReturnReview/commits/b44bcf7357c27aa467e9262d289844a56f0936ab"
+    },
+    "protected": false
+  },
+  {
+    "name": "eval/add-real-gemini-runner",
+    "commit": {
+      "sha": "88b5fbe74e21aed0e9cdc5cb27f923e502705893",
+      "url": "https://api.github.com/repos/Rishikeshsanin/ReturnReview/commits/88b5fbe74e21aed0e9cdc5cb27f923e502705893"
+    },
+    "protected": false
+  },
+  {
+    "name": "feat/cv-pilot-training-pipeline",
+    "commit": {
+      "sha": "d21ad1b5e6e9e883548c529c23f13ce55fa0e78d",
+      "url": "https://api.github.com/repos/Rishikeshsanin/ReturnReview/commits/d21ad1b5e6e9e883548c529c23f13ce55fa0e78d"
+    },
+    "protected": false
+  },
+  {
+    "name": "feat/cv-runtime-capacity-audit",
+    "commit": {
+      "sha": "84d88cb063195cf2ee3ab2475af378c7cd1bd0d4",
+      "url": "https://api.github.com/repos/Rishikeshsanin/ReturnReview/commits/84d88cb063195cf2ee3ab2475af378c7cd1bd0d4"
+    },
+    "protected": false
+  },
+  {
+    "name": "feat/dataset-readiness",
+    "commit": {
+      "sha": "8f70dc0bb0d5799d8532e766c6efe54652423513",
+      "url": "https://api.github.com/repos/Rishikeshsanin/ReturnReview/commits/8f70dc0bb0d5799d8532e766c6efe54652423513"
+    },
+    "protected": false
+  },
+  {
+    "name": "feat/dataset-source-provenance",
+    "commit": {
+      "sha": "f4107bead76ce39f1b9dbe0f8ffa05b71d4525a0",
+      "url": "https://api.github.com/repos/Rishikeshsanin/ReturnReview/commits/f4107bead76ce39f1b9dbe0f8ffa05b71d4525a0"
+    },
+    "protected": false
+  },
+  {
+    "name": "feat/durable-persistence-and-readiness",
+    "commit": {
+      "sha": "9d05a32bca98970b41d862c6b81a5a588240d80c",
+      "url": "https://api.github.com/repos/Rishikeshsanin/ReturnReview/commits/9d05a32bca98970b41d862c6b81a5a588240d80c"
+    },
+    "protected": false
+  },
+  {
+    "name": "feat/finalize-reviewed-llm-metrics",
+    "commit": {
+      "sha": "f1e4d3407fe294515c09f1e890d06c1db7d8aed2",
+      "url": "https://api.github.com/repos/Rishikeshsanin/ReturnReview/commits/f1e4d3407fe294515c09f1e890d06c1db7d8aed2"
+    },
+    "protected": false
+  },
+  {
+    "name": "feat/full-cv-public-pilot",
+    "commit": {
+      "sha": "734988fa81cf767d28133ca3163bdd4a059c48d9",
+      "url": "https://api.github.com/repos/Rishikeshsanin/ReturnReview/commits/734988fa81cf767d28133ca3163bdd4a059c48d9"
+    },
+    "protected": false
+  },
+  {
+    "name": "feat/gemini-capacity-fallback",
+    "commit": {
+      "sha": "c3307a67795bd3d94b7c3227874f2655f40ccc77",
+      "url": "https://api.github.com/repos/Rishikeshsanin/ReturnReview/commits/c3307a67795bd3d94b7c3227874f2655f40ccc77"
+    },
+    "protected": false
+  },
+  {
+    "name": "feat/improve-cv-public-pilot",
+    "commit": {
+      "sha": "5dcf111e2601f4a29d96f1ab1bcb03e729473f3f",
+      "url": "https://api.github.com/repos/Rishikeshsanin/ReturnReview/commits/5dcf111e2601f4a29d96f1ab1bcb03e729473f3f"
+    },
+    "protected": false
+  },
+  {
+    "name": "feat/lightweight-cv-runtime-integration",
+    "commit": {
+      "sha": "a7d7fd53fedfc7b582a65ec19c553965eb0e4d29",
+      "url": "https://api.github.com/repos/Rishikeshsanin/ReturnReview/commits/a7d7fd53fedfc7b582a65ec19c553965eb0e4d29"
+    },
+    "protected": false
+  },
+  {
+    "name": "feat/lightweight-production-cv",
+    "commit": {
+      "sha": "8ee59a8edcabe05c2160519d1bfea033502e7e7e",
+      "url": "https://api.github.com/repos/Rishikeshsanin/ReturnReview/commits/8ee59a8edcabe05c2160519d1bfea033502e7e7e"
+    },
+    "protected": false
+  },
+  {
+    "name": "feat/llm-evaluation-fixture",
+    "commit": {
+      "sha": "e113f5a365bf11c2304755c3ffa14c5f50ad48f6",
+      "url": "https://api.github.com/repos/Rishikeshsanin/ReturnReview/commits/e113f5a365bf11c2304755c3ffa14c5f50ad48f6"
+    },
+    "protected": false
+  },
+  {
+    "name": "feat/railway-gemini-eval-runner",
+    "commit": {
+      "sha": "76c3921ff58dacce86c2b956c1d8d22aa4f26dff",
+      "url": "https://api.github.com/repos/Rishikeshsanin/ReturnReview/commits/76c3921ff58dacce86c2b956c1d8d22aa4f26dff"
+    },
+    "protected": false
+  },
+  {
+    "name": "feature/evidence-aggregation",
+    "commit": {
+      "sha": "df25080b3889445dc108f2e4504f8da43c9c0e05",
+      "url": "https://api.github.com/repos/Rishikeshsanin/ReturnReview/commits/df25080b3889445dc108f2e4504f8da43c9c0e05"
+    },
+    "protected": false
+  },
+  {
+    "name": "finalization/consolidate-llm-protocol",
+    "commit": {
+      "sha": "5421199a3d22e92f653f1c040379fe6517d277ff",
+      "url": "https://api.github.com/repos/Rishikeshsanin/ReturnReview/commits/5421199a3d22e92f653f1c040379fe6517d277ff"
+    },
+    "protected": false
+  },
+  {
+    "name": "finalization/eval-and-readiness",
+    "commit": {
+      "sha": "6b033026983a203f8deba4fac0bb3c2ca89e5397",
+      "url": "https://api.github.com/repos/Rishikeshsanin/ReturnReview/commits/6b033026983a203f8deba4fac0bb3c2ca89e5397"
+    },
+    "protected": false
+  },
+  {
+    "name": "finalization/secure-activation-and-pilot",
+    "commit": {
+      "sha": "cbca55457ce58e78639b9b8a6939e466696192a4",
+      "url": "https://api.github.com/repos/Rishikeshsanin/ReturnReview/commits/cbca55457ce58e78639b9b8a6939e466696192a4"
+    },
+    "protected": false
+  },
+  {
+    "name": "finalization/submission-pack",
+    "commit": {
+      "sha": "1c3319f78e0725a9f1ee5d195dada6b3531f6184",
+      "url": "https://api.github.com/repos/Rishikeshsanin/ReturnReview/commits/1c3319f78e0725a9f1ee5d195dada6b3531f6184"
+    },
+    "protected": false
+  },
+  {
+    "name": "finalize/eval-and-dataset-scaffolds",
+    "commit": {
+      "sha": "8ee99ed9c01a1c62efffd66a20009dcd7a155190",
+      "url": "https://api.github.com/repos/Rishikeshsanin/ReturnReview/commits/8ee99ed9c01a1c62efffd66a20009dcd7a155190"
+    },
+    "protected": false
+  },
+  {
+    "name": "fix/cv-pilot-checkpoint-path",
+    "commit": {
+      "sha": "b3939b9f9f14b0cd93a8ff982b4c17f6d40d3ba5",
+      "url": "https://api.github.com/repos/Rishikeshsanin/ReturnReview/commits/b3939b9f9f14b0cd93a8ff982b4c17f6d40d3ba5"
+    },
+    "protected": false
+  },
+  {
+    "name": "fix/gemini-structured-review-schema",
+    "commit": {
+      "sha": "01a093b4deda183365760fb8b44b19791d248e87",
+      "url": "https://api.github.com/repos/Rishikeshsanin/ReturnReview/commits/01a093b4deda183365760fb8b44b19791d248e87"
+    },
+    "protected": false
+  },
+  {
+    "name": "fix/gemini-transient-retry",
+    "commit": {
+      "sha": "818e6f4a934566c998f3e1246b6c3a82712963fd",
+      "url": "https://api.github.com/repos/Rishikeshsanin/ReturnReview/commits/818e6f4a934566c998f3e1246b6c3a82712963fd"
+    },
+    "protected": false
+  },
+  {
+    "name": "fix/harden-review-grounding",
+    "commit": {
+      "sha": "4eee61e35990388e84a9cb0786082046ed1d16a7",
+      "url": "https://api.github.com/repos/Rishikeshsanin/ReturnReview/commits/4eee61e35990388e84a9cb0786082046ed1d16a7"
+    },
+    "protected": false
+  },
+  {
+    "name": "fix/production-smoke-gemini-timeout",
+    "commit": {
+      "sha": "a3bdac4002b7e890f439a810bff51c9b89f49649",
+      "url": "https://api.github.com/repos/Rishikeshsanin/ReturnReview/commits/a3bdac4002b7e890f439a810bff51c9b89f49649"
+    },
+    "protected": false
+  },
+  {
+    "name": "fix/production-smoke-rerun-id",
+    "commit": {
+      "sha": "5549b4dbfdf8beee97de80e2ebb3f0cf2ce718c7",
+      "url": "https://api.github.com/repos/Rishikeshsanin/ReturnReview/commits/5549b4dbfdf8beee97de80e2ebb3f0cf2ce718c7"
+    },
+    "protected": false
+  },
+  {
+    "name": "fix/reconcile-llm-evaluation",
+    "commit": {
+      "sha": "5462aa1327f3e6c8246ce2c1c8dc55acbb78f9a6",
+      "url": "https://api.github.com/repos/Rishikeshsanin/ReturnReview/commits/5462aa1327f3e6c8246ce2c1c8dc55acbb78f9a6"
+    },
+    "protected": false
+  },
+  {
+    "name": "fix/refresh-inspection-evidence",
+    "commit": {
+      "sha": "4587af6e37471a0b14ccc037a0f05dcb2aac4da2",
+      "url": "https://api.github.com/repos/Rishikeshsanin/ReturnReview/commits/4587af6e37471a0b14ccc037a0f05dcb2aac4da2"
+    },
+    "protected": false
+  },
+  {
+    "name": "fix/resumable-observable-gemini-eval",
+    "commit": {
+      "sha": "ee972498f87add0298a91300af85637207ed0a08",
+      "url": "https://api.github.com/repos/Rishikeshsanin/ReturnReview/commits/ee972498f87add0298a91300af85637207ed0a08"
+    },
+    "protected": false
+  },
+  {
+    "name": "fix/upload-form-reset",
+    "commit": {
+      "sha": "388341413db4af7adef1365fdb02866df3adb709",
+      "url": "https://api.github.com/repos/Rishikeshsanin/ReturnReview/commits/388341413db4af7adef1365fdb02866df3adb709"
+    },
+    "protected": false
+  },
+  {
+    "name": "main",
+    "commit": {
+      "sha": "7592c24f0fe7d2c3565464160eee1d981680c247",
+      "url": "https://api.github.com/repos/Rishikeshsanin/ReturnReview/commits/7592c24f0fe7d2c3565464160eee1d981680c247"
+    },
+    "protected": false
+  },
+  {
+    "name": "ops/trigger-latest-api-deploy",
+    "commit": {
+      "sha": "2898fd1817cc0e9e10c6fb2b09d0c717ea1067c6",
+      "url": "https://api.github.com/repos/Rishikeshsanin/ReturnReview/commits/2898fd1817cc0e9e10c6fb2b09d0c717ea1067c6"
+    },
+    "protected": false
+  },
+  {
+    "name": "qa/reconcile-production-readiness-20261010",
+    "commit": {
+      "sha": "66356b91db433de4d6cb6a095c767f723c24f31b",
+      "url": "https://api.github.com/repos/Rishikeshsanin/ReturnReview/commits/66356b91db433de4d6cb6a095c767f723c24f31b"
+    },
+    "protected": false
+  }
+]

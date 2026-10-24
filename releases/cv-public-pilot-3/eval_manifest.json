@@ -1,0 +1,32 @@
+{
+  "source": "/home/runner/work/ReturnReview/ReturnReview/artifacts/cv-work/raw-roboflow",
+  "seed": 20260924,
+  "defect_mapping": {
+    "tear": "tear",
+    "squeeze": "dent_or_crush",
+    "leakage": "unknown"
+  },
+  "limitations": [
+    "squeeze is explicitly treated as a compression-damage proxy for dent_or_crush.",
+    "leakage is evaluated as unknown/out-of-taxonomy.",
+    "crushed_corner has no direct source label in this public dataset and is not assigned synthetic labels."
+  ],
+  "category": {
+    "val_positive": 100,
+    "test_positive": 100,
+    "val_negative": 64,
+    "test_negative": 64
+  },
+  "defects": {
+    "val": {
+      "unknown": 100,
+      "tear": 100,
+      "dent_or_crush": 100
+    },
+    "test": {
+      "unknown": 100,
+      "tear": 67,
+      "dent_or_crush": 100
+    }
+  }
+}

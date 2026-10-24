@@ -1,0 +1,38 @@
+{
+  "kind": "openclip_text_semantic_prototypes",
+  "model": "ViT-B-32",
+  "pretrained": "laion2b_s34b_b79k",
+  "keys": [
+    "category_cardboard_box",
+    "defect_crushed_corner",
+    "defect_dent_or_crush",
+    "defect_tear"
+  ],
+  "prompts": {
+    "category_cardboard_box": [
+      "a photo of a corrugated cardboard shipping box",
+      "a cardboard parcel box",
+      "a brown corrugated packaging box"
+    ],
+    "defect_tear": [
+      "a visible tear in corrugated cardboard",
+      "torn cardboard on a shipping box",
+      "a ripped area of a cardboard package"
+    ],
+    "defect_crushed_corner": [
+      "a crushed corner of a cardboard shipping box",
+      "a smashed corner on a corrugated cardboard box",
+      "a visibly collapsed cardboard box corner"
+    ],
+    "defect_dent_or_crush": [
+      "a dented side panel of a cardboard shipping box",
+      "a crushed side of a corrugated cardboard box",
+      "compression damage on a cardboard parcel"
+    ]
+  },
+  "limitations": [
+    "These are text-derived semantic prototypes, not project-controlled few-shot image prototypes.",
+    "Thresholds must be calibrated on validation data before production use.",
+    "Subtype performance must be reported only for classes represented in held-out evaluation data."
+  ]
+}

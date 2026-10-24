@@ -1,0 +1,66 @@
+# Railway Project Hub Rules — ReturnReview
+
+## Identity
+- Application: ReturnReview
+- Hub app number: App 02
+- Hub slug: `return_review`
+- Repository: `https://github.com/Rishikeshsanin/ReturnReview`
+- Railway project: `ReturnReview`
+- Railway project ID: `3b5a435b-a0ca-43c0-85c0-9783073a8cd4`
+- Production environment: `production`
+- Registered production services: `returnreview-api`, `returnreview-web`, `Postgres`
+- Canonical Hub repository: `https://github.com/Rishikeshsanin/railway-project-hub`
+
+## Mandatory read-first rule
+Before any Railway change for ReturnReview:
+1. Read the canonical Railway Project Hub `README.md`, `AGENTS.md`, and `RAILWAY_HUB_RULES.md`.
+2. Read this file and this repository's `AGENTS.md`.
+3. Verify the exact Railway project, environment, target service, source repository, domain, variable names, volumes, and deployment status.
+4. Operate only inside resources registered to ReturnReview.
+
+If the canonical Hub repository is unavailable, do not create, delete, migrate, reconnect, or reconfigure Railway infrastructure. Read-only inspection is allowed.
+
+## Allowed scope
+ReturnReview may modify only its own:
+- Railway project and environments
+- `returnreview-api` and `returnreview-web`
+- app-specific variables and secrets
+- domains
+- app-specific volumes/databases if explicitly registered
+- GitHub deployment connections
+- app-specific monitoring
+
+## Forbidden scope
+Never:
+- modify another application's Railway project, service, deployment, variables, secrets, domain, volume, database, or GitHub connection
+- copy secrets from another app
+- use another app's Railway project because it has spare capacity
+- create cross-app dependencies without explicit user approval and Hub documentation
+- make organization-wide/shared-infrastructure changes for a ReturnReview task
+- expose secrets in GitHub, logs, screenshots, URLs, frontend code, or chat
+- treat a similarly named service as belonging to ReturnReview without registry verification
+
+## Production safety
+Use:
+`read → identify → verify → plan → change → test → verify`.
+
+For destructive or production-impacting actions, inspect dependencies and rollback first and obtain explicit user confirmation immediately before execution.
+
+## Current architecture
+The canonical ReturnReview deployment is the standalone Railway project `ReturnReview` with:
+- `returnreview-api`
+- `returnreview-web`
+- `Postgres` with its dedicated persistent volume
+
+The earlier shared-runtime experiment has been fully cleaned up:
+- the non-canonical `app01-motionlab` duplicate was removed after audit and explicit approval
+- the old project-level `hub.apps`, `hub.architecture_version`, and `hub.read_me_first` metadata flags were removed after verification
+- canonical governance now lives only in `Rishikeshsanin/railway-project-hub`
+
+ReturnReview now contains its canonical API, web, and Postgres runtime resources. The Postgres service owns a dedicated persistent Railway volume and has no public database domain. The API must connect to it over Railway private/service-reference configuration.
+
+## New resources
+No new Railway resource may be created for ReturnReview until it is documented in the canonical Hub registry with owner, purpose, environment, expected name, and isolation boundary.
+
+## Safety priority
+`Isolation > Security > Recoverability > Maintainability > Convenience`.
