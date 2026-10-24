@@ -180,4 +180,6 @@ jobs:
           fi
           SHA="$(cat metadata/source-main-sha.txt)"
           git commit -m "backup: mirror ReturnReview at ${SHA:0:12}"
+          git fetch origin main
+          git rebase origin/main
           git push origin HEAD:main
